@@ -46,6 +46,7 @@ class TagsInput < Formtastic::Inputs::StringInput
     opts = input_html_options
     opts["data-model"] = model_name
     opts["data-method"] = method
+    opts["data-options"] = camelize_keys(@options[:options]).to_json
 
     if @options[:collection].class.name != "ActiveRecord::Relation"
       fail "collection must be an ActiveRecord::Relation instance"
